@@ -21,9 +21,9 @@ public class Lab3AngelGomezFlores {
         while (bandera) {
             System.out.println("Ingrese una opcion");
             System.out.println("1) DIPTONGO");
-            System.out.println("2)");
-            System.out.println("3)");
-            System.out.println(":");
+            System.out.println("2)Palabras Palindromas");
+            System.out.println("3)Encriptación de Contraseñas");
+            System.out.println("4)salir");
             int op = entrada.nextInt();
             // String acumulador ="";
             switch (op) {
@@ -31,41 +31,38 @@ public class Lab3AngelGomezFlores {
                     System.out.println("Ingrese una palabra:");
                     String palabra = entrada.nextLine();
                     palabra = entrada.nextLine();
+                    palabra = palabra.toLowerCase();
                     int cont = 0, cont2 = 1;
                     //System.out.println(palabra);
                     String acumulador = "";
-                    boolean centinela = true;
                     while (palabra.length() != cont2) {
                         if (palabra.charAt(cont) == 'a' && palabra.charAt(cont2) == 'i') {
                             acumulador += palabra.charAt(cont);
                             acumulador += palabra.charAt(cont2);
                             System.out.println("felicidades:" + acumulador);
-                            centinela = false;
                         } else if (palabra.charAt(cont) == 'a' && palabra.charAt(cont2) == 'u') {
                             acumulador += palabra.charAt(cont);
                             acumulador += palabra.charAt(cont2);
                             System.out.println("felicidades:" + acumulador);
-                            centinela = false;
                         } else if (palabra.charAt(cont) == 'e' && palabra.charAt(cont2) == 'i') {
                             acumulador += palabra.charAt(cont);
                             acumulador += palabra.charAt(cont2);
                             System.out.println("felicidades:" + acumulador);
-                            centinela = false;
                         } else if (palabra.charAt(cont) == 'e' && palabra.charAt(cont2) == 'u') {
                             acumulador += palabra.charAt(cont);
                             acumulador += palabra.charAt(cont2);
                             System.out.println("felicidades:" + acumulador);
-                            centinela = false;
                         } else if (palabra.charAt(cont) == 'o' && palabra.charAt(cont2) == 'i') {
                             acumulador += palabra.charAt(cont);
                             acumulador += palabra.charAt(cont2);
                             System.out.println("felicidades:" + acumulador);
-                            centinela = false;
-                        }else if (palabra.charAt(cont) == 'o' && palabra.charAt(cont2) == 'u'){
+                        } else if (palabra.charAt(cont) == 'o' && palabra.charAt(cont2) == 'u') {
                             acumulador += palabra.charAt(cont);
                             acumulador += palabra.charAt(cont2);
                             System.out.println("felicidades:" + acumulador);
-                            centinela = false;
+                        }else {
+                            System.out.println("La palabra no contiene un diptongo");
+                            break;
                         }
 
                         cont++;
@@ -74,22 +71,56 @@ public class Lab3AngelGomezFlores {
                     break;
                 }
                 case 2: {
-                    System.out.println("-----------Palabras palIndromes--------------");
+                    System.out.println("-----------Palabras palIndrome--------------");
                     System.out.println("Ingrese una palabra:");
                     String palabra = entrada.nextLine();
-                    palabra.toLowerCase();
-                    boolean centinela = true;
-                    int cont = 0;
-                    int cont2 = palabra.length()-1;
-                    while (cont != palabra.length()) {
-                        if (palabra.charAt(cont) == palabra.charAt(cont2)) {
-                            System.out.println("La palabra es palindrome");
-                        }
+                    palabra = entrada.nextLine();
+                    palabra = palabra.toLowerCase();
+                    System.out.println(palabra);
+                    String acumulador = "";
+                    int cont2 = palabra.length() - 1;
+                    while (cont2 >= 0) {
+                        acumulador += palabra.charAt(cont2);
+                        cont2--;
+                    }
+                    if (acumulador.equalsIgnoreCase(palabra)) {
+                        System.out.println("la palabra es palindrome");
+                    }else {
+                        System.out.println("La palabra no es palindrome");
                     }
                     break;
                 }
                 case 3: {
-                    System.out.println("");
+                    System.out.println("---------Encriptacion Contra-------");
+                    System.out.println("Ingrese una contra:");
+                    String contra = entrada.next();
+                    System.out.println("Ingrese un numero:");
+                    int numero = entrada.nextInt();
+                    int cont = 0;
+                    String acumulador = "";
+                    while (cont < contra.length()) {
+                        if (contra.charAt(cont) == 'a' || contra.charAt(cont) == 'A') {
+                            acumulador += numero;
+
+                        } else if (contra.charAt(cont) == 'e' || contra.charAt(cont) == 'E') {
+                            acumulador += numero;
+
+                        } else if (contra.charAt(cont) == 'i' || contra.charAt(cont) == 'I') {
+                            acumulador += numero;
+
+                        } else if (contra.charAt(cont) == 'o' || contra.charAt(cont) == 'O') {
+                            acumulador += numero;
+
+                        } else if (contra.charAt(cont) == 'u' || contra.charAt(cont) == 'U') {
+                            acumulador += numero;
+
+                        } else {
+                            acumulador += contra.charAt(cont);
+                        }
+//                        System.out.println(acumulador);
+                        cont++;
+                    }
+                    System.out.println("password Final:" + acumulador);
                     break;
                 }
                 case 4: {
@@ -97,9 +128,6 @@ public class Lab3AngelGomezFlores {
                     break;
                 }
 
-                default: {
-                    break;
-                }
             }
         }
     }
