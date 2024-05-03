@@ -63,7 +63,7 @@ public class Lab3AngelGomezFlores {
                         }else {
                             System.out.println("La palabra no contiene un diptongo");
                             break;
-                        }
+                        }   
 
                         cont++;
                         cont2++;
