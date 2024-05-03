@@ -25,18 +25,67 @@ public class Lab3AngelGomezFlores {
             System.out.println("3)");
             System.out.println(":");
             int op = entrada.nextInt();
+            // String acumulador ="";
             switch (op) {
                 case 1: {
                     System.out.println("Ingrese una palabra:");
                     String palabra = entrada.nextLine();
                     palabra = entrada.nextLine();
-                    while (bandera) {
-                        
+                    int cont = 0, cont2 = 1;
+                    //System.out.println(palabra);
+                    String acumulador = "";
+                    boolean centinela = true;
+                    while (palabra.length() != cont2) {
+                        if (palabra.charAt(cont) == 'a' && palabra.charAt(cont2) == 'i') {
+                            acumulador += palabra.charAt(cont);
+                            acumulador += palabra.charAt(cont2);
+                            System.out.println("felicidades:" + acumulador);
+                            centinela = false;
+                        } else if (palabra.charAt(cont) == 'a' && palabra.charAt(cont2) == 'u') {
+                            acumulador += palabra.charAt(cont);
+                            acumulador += palabra.charAt(cont2);
+                            System.out.println("felicidades:" + acumulador);
+                            centinela = false;
+                        } else if (palabra.charAt(cont) == 'e' && palabra.charAt(cont2) == 'i') {
+                            acumulador += palabra.charAt(cont);
+                            acumulador += palabra.charAt(cont2);
+                            System.out.println("felicidades:" + acumulador);
+                            centinela = false;
+                        } else if (palabra.charAt(cont) == 'e' && palabra.charAt(cont2) == 'u') {
+                            acumulador += palabra.charAt(cont);
+                            acumulador += palabra.charAt(cont2);
+                            System.out.println("felicidades:" + acumulador);
+                            centinela = false;
+                        } else if (palabra.charAt(cont) == 'o' && palabra.charAt(cont2) == 'i') {
+                            acumulador += palabra.charAt(cont);
+                            acumulador += palabra.charAt(cont2);
+                            System.out.println("felicidades:" + acumulador);
+                            centinela = false;
+                        }else if (palabra.charAt(cont) == 'o' && palabra.charAt(cont2) == 'u'){
+                            acumulador += palabra.charAt(cont);
+                            acumulador += palabra.charAt(cont2);
+                            System.out.println("felicidades:" + acumulador);
+                            centinela = false;
+                        }
+
+                        cont++;
+                        cont2++;
                     }
                     break;
                 }
                 case 2: {
-                    System.out.println("");
+                    System.out.println("-----------Palabras palIndromes--------------");
+                    System.out.println("Ingrese una palabra:");
+                    String palabra = entrada.nextLine();
+                    palabra.toLowerCase();
+                    boolean centinela = true;
+                    int cont = 0;
+                    int cont2 = palabra.length()-1;
+                    while (cont != palabra.length()) {
+                        if (palabra.charAt(cont) == palabra.charAt(cont2)) {
+                            System.out.println("La palabra es palindrome");
+                        }
+                    }
                     break;
                 }
                 case 3: {
